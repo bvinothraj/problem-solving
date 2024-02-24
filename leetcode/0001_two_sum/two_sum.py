@@ -45,9 +45,14 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(solution.two_sum(nums2, target2), [1, 3])
 
         # case with positive and negative integers
-        nums2 = [-4, 2, 8, -1]
-        target2 = 4
-        self.assertEqual(solution.two_sum(nums2, target2), [0, 2])
+        nums3 = [-4, 2, 8, -1]
+        target3 = 4
+        self.assertEqual(solution.two_sum(nums3, target3), [0, 2])
+
+        # edge case
+        nums4 = [10**9, 10**9 - 1]
+        target4 = 2*10**9 - 1
+        self.assertEqual(solution.two_sum(nums4, target4), [0, 1])
 
 
 if __name__ == "__main__":
