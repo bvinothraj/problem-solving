@@ -31,28 +31,37 @@ class Solution:
 
 
 class TestSolution(unittest.TestCase):
-    def test_two_sum(self):
+    def test1_two_sum(self):
         solution = Solution()
 
         # simple case with postive integers
-        nums1 = [2, 7, 11, 15]
-        target1 = 9
-        self.assertEqual(solution.two_sum(nums1, target1), [0, 1])
+        nums = [2, 7, 11, 15]
+        target = 9
+        self.assertEqual(solution.two_sum(nums, target), [0, 1])
 
-        # case with negative integers
-        nums2 = [-4, -2, -8, -1]
-        target2 = -3
-        self.assertEqual(solution.two_sum(nums2, target2), [1, 3])
+    # case with negative integers
+    def test2_two_sum(self):
+        solution = Solution()
 
-        # case with positive and negative integers
-        nums3 = [-4, 2, 8, -1]
-        target3 = 4
-        self.assertEqual(solution.two_sum(nums3, target3), [0, 2])
+        nums = [-4, -2, -8, -1]
+        target = -3
+        self.assertEqual(solution.two_sum(nums, target), [1, 3])
 
-        # edge case
-        nums4 = [10**9, 10**9 - 1]
-        target4 = 2*10**9 - 1
-        self.assertEqual(solution.two_sum(nums4, target4), [0, 1])
+    # case with positive and negative integers
+    def test3_two_sum(self):
+        solution = Solution()
+
+        nums = [-4, 2, 8, -1]
+        target = 4
+        self.assertEqual(solution.two_sum(nums, target), [0, 2])
+
+    # edge case
+    def test4_two_sum(self):
+        solution = Solution()
+
+        nums = [10**9, 10**9 - 1]
+        target = 2*10**9 - 1
+        self.assertEqual(solution.two_sum(nums, target), [0, 1])
 
 
 if __name__ == "__main__":
