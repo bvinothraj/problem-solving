@@ -1,4 +1,6 @@
 """
+LeetCode Problem 2: Add two num
+
 You are given two non-empty linked lists representing two non-negative integers. 
 The digits are stored in reverse order, and each of their nodes contains a single digit. 
 Add the two numbers and return the sum as a linked list.
@@ -17,11 +19,12 @@ Explanation: 342 + 465 = 807.
 
 import unittest
 
+# pylint: disable=missing-docstring
 
 class ListNode():
-    def __init__(self, val=0, next=None):
+    def __init__(self, val=0, nxt=None):
         self.val = val
-        self.next = next
+        self.nxt = nxt
 
 
 class Solution():
@@ -31,27 +34,26 @@ class Solution():
         carry = 0
 
         while list1 or list2 or carry:
-            sum = carry
+            total = carry
 
             if list1:
-                sum += list1.val
-                list1 = list1.next
+                total += list1.val
+                list1 = list1.nxt
 
             if list2:
-                sum += list2.val
-                list2 = list2.next
+                total += list2.val
+                list2 = list2.nxt
 
-            carry = sum//10
-            sum %= 10
-            dummy.next = ListNode(sum)
-            dummy = dummy.next
+            carry = total//10
+            total %= 10
+            dummy.nxt = ListNode(total)
+            dummy = dummy.nxt
 
-        return res.next
+        return res.nxt
 
 
 class TestSolution(unittest.TestCase):
-    def test1_add_two_num(self):
-        """Simple test case."""
+    def test_simple_case(self):
         l1_node3 = ListNode(3)
         l1_node2 = ListNode(4, l1_node3)
         list1 = ListNode(2, l1_node2)
@@ -69,11 +71,10 @@ class TestSolution(unittest.TestCase):
 
         while expected:
             self.assertEqual(actual.val, expected.val)
-            actual = actual.next
-            expected = expected.next
+            actual = actual.nxt
+            expected = expected.nxt
 
-    def test2_add_two_num(self):
-        """Test case with carry."""
+    def test_case_with_carry(self):
         l1_node3 = ListNode(7)
         l1_node2 = ListNode(4, l1_node3)
         list1 = ListNode(6, l1_node2)
@@ -92,11 +93,10 @@ class TestSolution(unittest.TestCase):
 
         while expected:
             self.assertEqual(actual.val, expected.val)
-            actual = actual.next
-            expected = expected.next
+            actual = actual.nxt
+            expected = expected.nxt
 
-    def test3_add_two_sum(self):
-        """Edge case with single digit number."""
+    def test_edge_single_digit(self):
         list1 = ListNode(3)
         list2 = ListNode(4)
         expected = ListNode(7)
@@ -106,11 +106,10 @@ class TestSolution(unittest.TestCase):
 
         while expected:
             self.assertEqual(expected.val, actual.val)
-            expected = expected.next
-            actual = actual.next
+            expected = expected.nxt
+            actual = actual.nxt
 
-    def test4_add_two_num(self):
-        """Edge case with max value."""
+    def test_edge_max_value(self):
         l1_node3 = ListNode(9)
         l1_node2 = ListNode(9, l1_node3)
         list1 = ListNode(9, l1_node2)
@@ -129,8 +128,8 @@ class TestSolution(unittest.TestCase):
 
         while expected:
             self.assertEqual(actual.val, expected.val)
-            actual = actual.next
-            expected = expected.next
+            actual = actual.nxt
+            expected = expected.nxt
 
 
 if __name__ == "__main__":
