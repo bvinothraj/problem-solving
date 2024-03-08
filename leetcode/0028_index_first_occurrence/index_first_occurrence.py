@@ -54,15 +54,13 @@ class Solution:
 class Solution2:
     """Sliding window technique"""
     def index_of_first_occurrence(self, needle: str, haystack: str) -> int:
-        haystack_len = len(haystack)
-        needle_len = len(needle)
+        h = len(haystack)
+        n = len(needle)
 
-        if needle_len == 0:
-            return -1
-
-        for i in range(haystack_len-needle_len + 1):
-            if haystack[i:i+needle_len] == needle:
-                return i
+        if n > 0:
+            for i in range(h-n+1):
+                if haystack[i:i+n] == needle:
+                    return i
 
         return -1
 
@@ -129,6 +127,18 @@ class TestSolution(unittest.TestCase):
 
     def test_needle_empty(self):
         needle = ""
+        haystack = "blow"
+        expected = -1
+        solution = Solution()
+        actual = solution.index_of_first_occurrence(needle, haystack)
+        self.assertEqual(expected, actual)
+
+        solution2 = Solution2()
+        actual = solution2.index_of_first_occurrence(needle, haystack)
+        self.assertEqual(expected, actual)
+    
+    def test_needle_greater_than_haystack(self):
+        needle = "quickblow"
         haystack = "blow"
         expected = -1
         solution = Solution()
