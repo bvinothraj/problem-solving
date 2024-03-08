@@ -1,0 +1,24 @@
+{
+	"Python Class": {
+		"prefix": "lc",
+		"body": [
+			"\"\"\"",
+			"\"\"\"",
+			"",
+			"import unittest",
+			"",
+			"# pylint: disable=missing-docstring",
+			"",
+			"class Solution:",
+			"\tdef test(self):",
+			"\t\tpass",
+			"",
+			"",
+			"class TestSolution(unittest.TestClass):",
+			"\tdef test_simple(self):",
+			"\t\tpass",
+			""
+		],
+		"description": "Leet Code Class Template"
+	}
+}
