@@ -1,5 +1,5 @@
 """
-LeetCode Problem 9: Palindrome number
+LeetCode #9: Palindrome number
 
 Given an integer x, return true if x is a palindrome, and false otherwise.
 
