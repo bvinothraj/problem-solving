@@ -14,9 +14,12 @@
 			"\t\tpass",
 			"",
 			"",
-			"class TestSolution(unittest.TestClass):",
+			"class TestSolution(unittest.TestCase):",
 			"\tdef test_simple(self):",
 			"\t\tpass",
+			"",
+			"if __name__ == \"__main__\":",
+			"\tunittest.main()",
 			""
 		],
 		"description": "Leet Code Class Template"
