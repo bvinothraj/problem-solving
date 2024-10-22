@@ -75,6 +75,13 @@ class TestSolution(unittest.TestCase):
         result = Solution().is_subsequence(s, t)
         self.assertEqual(expected, result)
 
+    def test_boundary_empty_t(self):
+        s = "mm"
+        t = ""
+        expected = False
+        result = Solution().is_subsequence(s, t)
+        self.assertEqual(expected, result)
+
     def test_negative(self):
         s = "mmm"
         t = "ahbgdc"
